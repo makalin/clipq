@@ -1,0 +1,67 @@
+[package]
+name = "clipq"
+version = "0.1.0"
+edition = "2021"
+authors = ["Mehmet T. AKALIN <makalin@gmail.com>"]
+description = "Smart Clipboard Queue for power-users"
+license = "MIT"
+repository = "https://github.com/yourusername/clipq"
+
+[[bin]]
+name = "clipq"
+path = "src/main.rs"
+
+[dependencies]
+# CLI and argument parsing
+clap = { version = "4.4", features = ["derive"] }
+anyhow = "1.0"
+
+# Database
+rusqlite = { version = "0.30", features = ["bundled"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Clipboard
+arboard = "3.2"
+
+# Async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# File system and paths
+walkdir = "2.4"
+
+# Process execution
+which = "4.4"
+
+# Configuration
+toml = "0.8"
+
+# Logging
+env_logger = "0.10"
+log = "0.4"
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Cross-platform hotkeys
+global-hotkey = "0.4"
+
+# Error handling
+thiserror = "1.0"
+
+# UUID for unique identifiers
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+# Shell expansion for tilde paths
+shellexpand = "3.1"
+
+# Directory utilities
+dirs = "5.0"
+
+# Web framework
+warp = "0.3"
+
+# Additional dependencies for plugins
+regex = "1.10"
+rand = "0.8"
+sha2 = "0.10"

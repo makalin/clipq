@@ -1,0 +1,12 @@
+# clipq Configuration File
+# This file contains the default configuration for clipq
+
+max_clips = 100
+hotkey = "ctrl+shift+v"
+picker_command = "fzf"
+database_path = "~/.clipq/clipboard.db"
+enable_file_clips = true
+enable_encryption = false
+sync_enabled = false
+sync_gist_id = ""
+sync_token = ""

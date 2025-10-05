@@ -26,21 +26,84 @@ Hit **Ctrl+Shift+V** to open a fuzzy picker (fzf/skim) and paste instantly.
 - SQLite (lightweight, embedded)
 - fzf / skim for fuzzy search UI
 
-## Usage
+## Installation
+
+### Quick Install
 ```bash
-# Run the daemon
-clipq --daemon
+# Clone the repository
+git clone https://github.com/yourusername/clipq.git
+cd clipq
 
-# Add to clipboard (auto-captured)
-echo "hello" | clipq
+# Build and install
+./install.sh
+```
 
-# Pick and paste from history
-clipq --pick
-````
+### Manual Build
+```bash
+# Build the project
+cargo build --release
+
+# Or use the build script
+./build.sh
+```
+
+## Usage
+
+### Basic Commands
+```bash
+# Run the daemon (monitors clipboard automatically)
+clipq daemon
+
+# Add text to clipboard and history
+clipq add "Hello, World!"
+
+# Pick and paste from history (requires fzf or skim)
+clipq pick
+
+# List clipboard history
+clipq list
+
+# Clear clipboard history
+clipq clear
+
+# Show configuration
+clipq config
+```
+
+### Daemon Mode
+```bash
+# Run the daemon with custom settings
+clipq daemon --max-clips 200 --config ~/.clipq.toml
+```
+
+### Configuration
+The configuration file is automatically created at `~/.clipq.toml`:
+
+```toml
+max_clips = 100
+hotkey = "ctrl+shift+v"
+picker_command = "fzf"
+database_path = "~/.clipq/clipboard.db"
+enable_file_clips = true
+enable_encryption = false
+sync_enabled = false
+```
+
+## Testing
+```bash
+# Run the test suite
+./test.sh
+```
 
 ## Roadmap
 
-* [ ] Config file (`~/.clipq.toml`)
+* [x] Config file (`~/.clipq.toml`)
+* [x] SQLite database backend
+* [x] Cross-platform clipboard support
+* [x] Fuzzy picker integration (fzf/skim)
+* [x] CLI interface
+* [x] Daemon mode
+* [ ] Global hotkey support (temporarily disabled)
 * [ ] Multi-device sync (encrypted Gist)
 * [ ] File preview in picker
 * [ ] GUI tray app (optional)
